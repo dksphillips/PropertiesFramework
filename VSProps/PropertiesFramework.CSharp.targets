@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <MSLangTargets>$(MSBuildBinPath)\Microsoft.Csharp.targets</MSLangTargets>
+    <DefineConstants>TRACE;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)VSProps\PropertiesFramework.Common.targets" />
+  <!-- Make sure the projects using this targets file rebuild if this file changes 
+       This must come after the import of the common targets -->
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(SolutionDir)VSProps\PropertiesFramework.CSharp.targets</MSBuildAllProjects>
+  </PropertyGroup>
+</Project>
